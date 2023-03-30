@@ -19,7 +19,7 @@ public class Movie {
     @Column(name = "title")
     private String title;
     @Column(name = "rating")
-    private String rating;
+    private int rating;
 
 
 }

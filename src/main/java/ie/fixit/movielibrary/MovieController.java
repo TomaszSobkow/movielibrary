@@ -46,11 +46,16 @@ public class MovieController {
        Movie movie= movieRepository.getById(id);
        if(movie != null){
            if(updatedMovie.getTitle() != null) movie.setTitle(updatedMovie.getTitle());
-           if(updatedMovie.getRating() != null) movie.setRating(updatedMovie.getRating());
+           if(updatedMovie.getRating() > 0) movie.setRating(updatedMovie.getRating());
            movieRepository.update(movie);
            return  1;
        }else
            return -1;
+    }
+
+    @DeleteMapping("/{id}")
+    public int delete(@PathVariable("id") int id){
+        return movieRepository.delete(id);
     }
 
 }
