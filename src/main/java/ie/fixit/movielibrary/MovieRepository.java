@@ -33,4 +33,10 @@ public class MovieRepository {
         return jdbcTemplate.update("INSERT INTO movies(title, rating) values(?,?)",
                 newMovie.getTitle(), newMovie.getRating());
     }
+
+    public int update(Movie movie){
+       return jdbcTemplate.update("UPDATE movies SET title=?, rating=? WHERE id=?",
+        movie.getTitle(), movie.getRating(), movie.getId());
+    }
+
 }
