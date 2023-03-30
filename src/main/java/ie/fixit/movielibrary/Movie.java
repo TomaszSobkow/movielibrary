@@ -9,12 +9,16 @@ import lombok.*;
 @NoArgsConstructor
 @Getter
 @Setter
+@Table(name = "movies")
 public class Movie {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID")
     private int Id;
+    @Column(name = "title")
     private String title;
+    @Column(name = "rating")
     private String rating;
 
 

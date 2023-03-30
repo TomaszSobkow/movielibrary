@@ -28,4 +28,9 @@ public class MovieRepository {
 ////                        BeanPropertyRowMapper.newInstance(Movie.class));
         return query;
     }
+
+    public int save(Movie newMovie) {
+        return jdbcTemplate.update("INSERT INTO movies(title, rating) values(?,?)",
+                newMovie.getTitle(), newMovie.getRating());
+    }
 }
